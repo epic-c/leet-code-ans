@@ -6,8 +6,10 @@ var sortByBits = function(arr) {
             bits: ((item.toString(2)).replace(/0/g, "")).length
         })
     });
-
-    core.sort((a, b) => a.bits - b.bits)
+    core.sort((a, b) => a.bits === b.bits ?
+        a.element - b.element :
+        a.bits - b.bits
+    )
 
     let result = []
     core.forEach(item => {
